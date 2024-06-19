@@ -11,11 +11,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var datas: [Item] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: SearchBarCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SearchBarCell.reuseIdentifier)
+        tableView.register(UINib(nibName: RepoCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RepoCell.reuseIdentifier)
         // Do any additional setup after loading the view.
     }
     
@@ -37,11 +46,13 @@ class ViewController: UIViewController {
                     return
                 }
                 print("decode successed")
-                
                 guard let items = repoResponse.items else {
                     print("no items")
                     return
                 }
+                
+                self.datas = items
+                
                 for item in items {
                     print(item.fullName ?? "no full name")
                 }
@@ -54,20 +65,33 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return datas.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarCell.reuseIdentifier) as? SearchBarCell else {
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarCell.reuseIdentifier) as? SearchBarCell else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            return cell
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RepoCell.reuseIdentifier) as? RepoCell else {
             return UITableViewCell()
         }
-        cell.delegate = self
-        
+        let item = datas[indexPath.row - 1]
+        cell.setupCell(item: item)
         return cell
+        
     }
 }
 
 extension ViewController: SearchBarCellDelegate {
+    func didEmptyText() {
+        datas.removeAll()
+    }
+    
     func didTappedSearchBtn(text: String) {
         searchRepo(text: text)
     }

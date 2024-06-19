@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchBarCellDelegate: AnyObject {
     func didTappedSearchBtn(text: String)
+    func didEmptyText()
 }
 
 class SearchBarCell: UITableViewCell {
@@ -42,5 +43,11 @@ extension SearchBarCell: UISearchBarDelegate {
         
         print("searchBarTextDidEndEditing: \(String(describing: text))")
         self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            delegate?.didEmptyText()
+        }
     }
 }

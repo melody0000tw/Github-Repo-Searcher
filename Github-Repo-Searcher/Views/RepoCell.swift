@@ -17,12 +17,14 @@ class RepoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        avatarView.layer.cornerRadius = 50
         // Initialization code
     }
     
     func setupCell(item: Item) {
         titleLabel.text = item.fullName
         descriptionLabel.text = item.description
+        avatarView.loadImage(item.owner?.avatarUrl)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

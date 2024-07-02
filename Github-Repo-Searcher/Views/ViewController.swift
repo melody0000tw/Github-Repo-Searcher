@@ -11,10 +11,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var refreshControl = UIRefreshControl()
+    
     var datas: [Item] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -25,14 +28,38 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: SearchBarCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SearchBarCell.reuseIdentifier)
         tableView.register(UINib(nibName: RepoCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RepoCell.reuseIdentifier)
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshData) , for: .valueChanged)
         // Do any additional setup after loading the view.
     }
     
+    private func presentAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: completion)
+    }
     
-    private func searchRepo(text: String) {
+    @objc private func refreshData() {
+        print("refreshing...")
+        guard let cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? SearchBarCell,
+              let text = cell.searchBar.text
+        else { return }
+        
+        searchRepo(text: text)
+    }
+    
+   private func searchRepo(text: String) {
+        guard !text.isEmpty else {
+            self.presentAlert(title: "Oops!", message: "The data could't be read because it is missing.") {
+                self.refreshControl.endRefreshing()
+            }
+            return
+        }
         print("searching text: \(text)")
         guard let url = URL(string: "https://api.github.com/search/repositories?q=\(text)") else {
             print("invalid url")
+            refreshControl.endRefreshing()
             return
         }
         var request = URLRequest(url: url)
@@ -43,20 +70,17 @@ class ViewController: UIViewController {
             if let data = data {
                 guard let repoResponse = try? JSONDecoder().decode(Repositories.self, from: data) else {
                     print("decode failed")
+                    self.refreshControl.endRefreshing()
                     return
                 }
                 print("decode successed")
                 guard let items = repoResponse.items else {
                     print("no items")
+                    self.refreshControl.endRefreshing()
                     return
                 }
                 
                 self.datas = items
-                
-                for item in items {
-                    print(item.fullName ?? "no full name")
-                }
-               
             }
         }
         task.resume()
@@ -91,7 +115,7 @@ extension ViewController: SearchBarCellDelegate {
     func didEmptyText() {
         datas.removeAll()
     }
-    
+
     func didTappedSearchBtn(text: String) {
         searchRepo(text: text)
     }

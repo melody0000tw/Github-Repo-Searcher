@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VZY-VG-9Pq">
+                    <searchBar contentMode="redraw" placeholder="請輸入關鍵字搜尋" translatesAutoresizingMaskIntoConstraints="NO" id="VZY-VG-9Pq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="4NW-Wc-ons"/>

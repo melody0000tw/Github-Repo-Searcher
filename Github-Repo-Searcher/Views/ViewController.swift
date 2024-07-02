@@ -29,6 +29,9 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: SearchBarCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SearchBarCell.reuseIdentifier)
         tableView.register(UINib(nibName: RepoCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RepoCell.reuseIdentifier)
         tableView.addSubview(refreshControl)
+        let titleView = TitleView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 80))
+        titleView.setTitle("Repository Search")
+        tableView.tableHeaderView = titleView
         refreshControl.addTarget(self, action: #selector(refreshData) , for: .valueChanged)
         // Do any additional setup after loading the view.
     }

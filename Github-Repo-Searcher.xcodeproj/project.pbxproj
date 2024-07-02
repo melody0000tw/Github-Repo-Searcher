@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB8A48202C33DBC700B2C8E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EB8A481F2C33DBC700B2C8E9 /* Kingfisher */; };
 		EB8A48232C33DC2A00B2C8E9 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A48222C33DC2A00B2C8E9 /* KingFisherWrapper.swift */; };
+		EB8A48252C34522500B2C8E9 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A48242C34522500B2C8E9 /* TitleView.swift */; };
 		EBAACBAE2C2291FD00E5F78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACBAD2C2291FD00E5F78D /* AppDelegate.swift */; };
 		EBAACBB02C2291FD00E5F78D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACBAF2C2291FD00E5F78D /* SceneDelegate.swift */; };
 		EBAACBB22C2291FD00E5F78D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAACBB12C2291FD00E5F78D /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		EB8A48222C33DC2A00B2C8E9 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
+		EB8A48242C34522500B2C8E9 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		EBAACBAA2C2291FD00E5F78D /* Github-Repo-Searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Repo-Searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAACBAD2C2291FD00E5F78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBAACBAF2C2291FD00E5F78D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				EBAACBCF2C22DCAC00E5F78D /* RepoCell.xib */,
 				EBAACBD22C22DCF300E5F78D /* SearchBarCell.swift */,
 				EBAACBD32C22DCF300E5F78D /* SearchBarCell.xib */,
+				EB8A48242C34522500B2C8E9 /* TitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				EBAACBB02C2291FD00E5F78D /* SceneDelegate.swift in Sources */,
 				EBAACBC42C22C96800E5F78D /* Repository.swift in Sources */,
 				EB8A48232C33DC2A00B2C8E9 /* KingFisherWrapper.swift in Sources */,
+				EB8A48252C34522500B2C8E9 /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,7 +32,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b7B-3G-6PF" secondAttribute="bottom" id="iYZ-hR-I3N"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Repository Search" id="KNR-Sw-ueW"/>
+                    <navigationItem key="navigationItem" title="Repository Search" id="KNR-Sw-ueW">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="xnj-ff-Rr6"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="b7B-3G-6PF" id="MPN-Q5-Kdl"/>
                     </connections>

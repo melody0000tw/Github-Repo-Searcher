@@ -33,6 +33,13 @@ class ViewController: UIViewController {
         titleView.setTitle("Repository Search")
         tableView.tableHeaderView = titleView
         refreshControl.addTarget(self, action: #selector(refreshData) , for: .valueChanged)
+        let backBTN = UIBarButtonItem(image: UIImage(named: "Back"),
+                                      style: .plain,
+                                      target: navigationController,
+                                      action: #selector(UINavigationController.popViewController(animated:)))
+        backBTN.title = "Back"
+        backBTN.tintColor = .black
+        navigationItem.backBarButtonItem = backBTN
         // Do any additional setup after loading the view.
     }
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB00A4202C3532BB0004873D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00A41F2C3532BB0004873D /* DetailViewController.swift */; };
+		EB00A4232C3534D70004873D /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00A4212C3534D70004873D /* DetailCell.swift */; };
+		EB00A4242C3534D70004873D /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB00A4222C3534D70004873D /* DetailCell.xib */; };
 		EB8A48202C33DBC700B2C8E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EB8A481F2C33DBC700B2C8E9 /* Kingfisher */; };
 		EB8A48232C33DC2A00B2C8E9 /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A48222C33DC2A00B2C8E9 /* KingFisherWrapper.swift */; };
 		EB8A48252C34522500B2C8E9 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A48242C34522500B2C8E9 /* TitleView.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB00A41F2C3532BB0004873D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EB00A4212C3534D70004873D /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		EB00A4222C3534D70004873D /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		EB8A48222C33DC2A00B2C8E9 /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		EB8A48242C34522500B2C8E9 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		EBAACBAA2C2291FD00E5F78D /* Github-Repo-Searcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Repo-Searcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,11 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				EBAACBB12C2291FD00E5F78D /* ViewController.swift */,
+				EB00A41F2C3532BB0004873D /* DetailViewController.swift */,
+				EB8A48242C34522500B2C8E9 /* TitleView.swift */,
 				EBAACBCE2C22DCAC00E5F78D /* RepoCell.swift */,
 				EBAACBCF2C22DCAC00E5F78D /* RepoCell.xib */,
 				EBAACBD22C22DCF300E5F78D /* SearchBarCell.swift */,
 				EBAACBD32C22DCF300E5F78D /* SearchBarCell.xib */,
-				EB8A48242C34522500B2C8E9 /* TitleView.swift */,
+				EB00A4212C3534D70004873D /* DetailCell.swift */,
+				EB00A4222C3534D70004873D /* DetailCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +189,7 @@
 			files = (
 				EBAACBBA2C22920000E5F78D /* LaunchScreen.storyboard in Resources */,
 				EBAACBB72C22920000E5F78D /* Assets.xcassets in Resources */,
+				EB00A4242C3534D70004873D /* DetailCell.xib in Resources */,
 				EBAACBB52C2291FD00E5F78D /* Main.storyboard in Resources */,
 				EBAACBD52C22DCF300E5F78D /* SearchBarCell.xib in Resources */,
 				EBAACBD12C22DCAC00E5F78D /* RepoCell.xib in Resources */,
@@ -193,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB00A4232C3534D70004873D /* DetailCell.swift in Sources */,
+				EB00A4202C3532BB0004873D /* DetailViewController.swift in Sources */,
 				EBAACBD02C22DCAC00E5F78D /* RepoCell.swift in Sources */,
 				EBAACBD42C22DCF300E5F78D /* SearchBarCell.swift in Sources */,
 				EBAACBB22C2291FD00E5F78D /* ViewController.swift in Sources */,

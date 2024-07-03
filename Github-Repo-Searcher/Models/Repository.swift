@@ -45,9 +45,11 @@ struct Item: Codable {
 }
 
 struct Owner: Codable {
+    let login: String?
     let avatarUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
+        case login = "login"
     }
 }

@@ -110,7 +110,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let item = datas[indexPath.row - 1]
         cell.setupCell(item: item)
         return cell
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = datas[indexPath.row - 1]
+        print("selected repo: \(data.fullName!)")
+        let detailVC = DetailViewController()
+        detailVC.data = data
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
